@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %> | CSE 340</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <p class="eyebrow">CSE 340</p>
+      <h1>Web Backend Development</h1>
+      <p class="intro">
+        Your Express app is running with EJS, environment variables, and a
+        route-controller-view flow.
+      </p>
+
+      <section class="flow" aria-label="Request response flow">
+        <article class="card">
+          <h2>1. Route</h2>
+          <p><code>routes/baseRoute.js</code> listens for <code>GET /</code>.</p>
+        </article>
+
+        <article class="card">
+          <h2>2. Controller</h2>
+          <p>
+            <code>controllers/baseController.js</code> decides which view to
+            render and what data to send.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>3. View</h2>
+          <p>
+            <code>views/index.ejs</code> turns that data into HTML for the
+            browser.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <% if (enableLiveReload) { %>
+      <script src="/js/live-reload.js"></script>
+    <% } %>
+  </body>
+</html>

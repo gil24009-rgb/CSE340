@@ -1,0 +1,22 @@
+{
+  "name": "cse-340",
+  "version": "1.0.0",
+  "description": "Initial Express project for CSE 340 Web Backend Development",
+  "main": "server.js",
+  "packageManager": "pnpm@10.33.2",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "ejs": "^5.0.2",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "chokidar": "^5.0.0",
+    "nodemon": "^3.1.14",
+    "ws": "^8.20.0"
+  }
+}

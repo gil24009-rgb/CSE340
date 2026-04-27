@@ -16,8 +16,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const port = Number(process.env.PORT) || 5500;
-const isProduction = process.env.NODE_ENV === "production";
+const NODE_ENV = process.env.NODE_ENV || "production";
+const PORT = Number(process.env.PORT) || 3000;
+const isProduction = NODE_ENV === "production";
 const host = isProduction ? undefined : "127.0.0.1";
 
 app.set("view engine", "ejs");
@@ -67,6 +68,6 @@ if (!isProduction) {
   });
 }
 
-server.listen(port, host, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+server.listen(PORT, host, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

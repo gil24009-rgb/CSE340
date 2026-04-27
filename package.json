@@ -1,7 +1,7 @@
 {
   "name": "cse-340",
   "version": "1.0.0",
-  "description": "Initial Express project for CSE 340 Web Backend Development",
+  "description": "Course project for CSE 340",
   "main": "server.js",
   "packageManager": "pnpm@10.33.2",
   "type": "module",
@@ -15,7 +15,7 @@
     "express": "^5.2.1"
   },
   "devDependencies": {
-    "chokidar": "^5.0.0",
+    "chokidar": "^3.6.0",
     "nodemon": "^3.1.14",
     "ws": "^8.20.0"
   }

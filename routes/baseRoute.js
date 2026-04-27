@@ -1,9 +1,15 @@
 import express from "express";
 
-import * as baseController from "../controllers/baseController.js";
+import {
+  buildAbout,
+  buildHome,
+  buildProducts,
+} from "../controllers/baseController.js";
 
 const router = express.Router();
 
-router.get("/", baseController.buildHome);
+router.get("/", buildHome);
+router.get("/about", buildAbout);
+router.get("/products", buildProducts);
 
 export default router;

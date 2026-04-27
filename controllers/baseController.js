@@ -1,6 +1,18 @@
-export function buildHome(req, res) {
-  res.render("index", {
+function buildViewModel(title) {
+  return {
     enableLiveReload: process.env.NODE_ENV !== "production",
-    title: "Home",
-  });
+    title,
+  };
+}
+
+export function buildHome(req, res) {
+  res.render("home", buildViewModel("Welcome Home"));
+}
+
+export function buildAbout(req, res) {
+  res.render("about", buildViewModel("About Me"));
+}
+
+export function buildProducts(req, res) {
+  res.render("products", buildViewModel("Our Products"));
 }

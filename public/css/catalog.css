@@ -1,0 +1,96 @@
+.course-list,
+.faculty-list,
+.section-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.course-card,
+.faculty-card,
+.section-card,
+.demo-section,
+.faculty-detail,
+.query-debug {
+  background: #ffffff;
+  border: 1px solid #d9e2ec;
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.course-card h2,
+.faculty-card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.course-id,
+.course-meta,
+.faculty-title {
+  color: #52606d;
+  font-weight: 700;
+}
+
+.sections-header {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.sort-options {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sort-options a {
+  border: 1px solid #bcccdc;
+  border-radius: 6px;
+  padding: 0.35rem 0.7rem;
+  text-decoration: none;
+}
+
+.sort-options a.active {
+  background: #0b5ed7;
+  border-color: #0b5ed7;
+  color: #ffffff;
+}
+
+.section-time {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.faculty-list {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.faculty-detail dl {
+  display: grid;
+  gap: 1rem;
+}
+
+.faculty-detail dl div {
+  border-top: 1px solid #d9e2ec;
+  padding-top: 1rem;
+}
+
+.faculty-detail dt {
+  color: #52606d;
+  font-weight: 700;
+}
+
+.faculty-detail dd {
+  margin: 0.25rem 0 0;
+}
+
+.error-page img {
+  display: block;
+  height: auto;
+  margin: 1.5rem 0;
+  max-width: min(100%, 640px);
+}

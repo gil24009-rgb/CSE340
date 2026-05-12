@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">404 page not found sign</title>
+  <desc id="desc">A simple road sign style graphic that says 404 and page not found.</desc>
+  <rect width="640" height="360" fill="#e3f2fd"/>
+  <rect x="140" y="70" width="360" height="180" rx="14" fill="#ffffff" stroke="#0b5ed7" stroke-width="10"/>
+  <text x="320" y="150" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" fill="#1f2933">404</text>
+  <text x="320" y="205" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="#52606d">Page Not Found</text>
+  <rect x="302" y="250" width="36" height="80" fill="#52606d"/>
+  <rect x="260" y="320" width="120" height="12" rx="6" fill="#52606d"/>
+</svg>

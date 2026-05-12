@@ -1,0 +1,30 @@
+<%- include("partials/header") %>
+
+<main class="content">
+  <h1><%= title %></h1>
+
+  <section class="demo-section">
+    <h2>Global Middleware Results</h2>
+    <p><strong>Greeting:</strong> <%= greeting %></p>
+    <p><strong>Current Year:</strong> <%= currentYear %></p>
+    <p><strong>Theme:</strong> <%= bodyClass %></p>
+
+    <% if (Object.keys(queryParams).length > 0) { %>
+      <p><strong>Query Parameters:</strong></p>
+      <ul>
+        <% Object.keys(queryParams).forEach((key) => { %>
+          <li><strong><%= key %>:</strong> <%= queryParams[key] %></li>
+        <% }); %>
+      </ul>
+    <% } else { %>
+      <p>No query parameters were provided.</p>
+    <% } %>
+  </section>
+
+  <section class="demo-section">
+    <h2>Route-Specific Middleware</h2>
+    <p>This page sends custom HTTP headers: <code>X-Demo-Page</code> and <code>X-Middleware-Demo</code>.</p>
+  </section>
+</main>
+
+<%- include("partials/footer") %>

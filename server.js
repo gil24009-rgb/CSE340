@@ -8,6 +8,9 @@ import express from "express";
 import { WebSocket, WebSocketServer } from "ws";
 
 import baseRoutes from "./routes/baseRoute.js";
+import catalogRoutes from "./routes/catalogRoute.js";
+import { addDemoHeaders } from "./routes/demoRoute.js";
+import facultyRoutes from "./routes/facultyRoute.js";
 import staticRoutes from "./routes/static.js";
 
 dotenv.config();
@@ -27,8 +30,69 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+/**
+ * Configure Express middleware
+ */
+app.use((req, res, next) => {
+  res.locals.NODE_ENV = NODE_ENV.toLowerCase() || "production";
+  res.locals.enableLiveReload = !isProduction;
+  next();
+});
+
+app.use((req, res, next) => {
+  if (!req.path.startsWith("/.")) {
+    console.log(`${req.method} ${req.url}`);
+  }
+
+  next();
+});
+
+app.use((req, res, next) => {
+  res.locals.currentYear = new Date().getFullYear();
+  next();
+});
+
+app.use((req, res, next) => {
+  const currentHour = new Date().getHours();
+
+  if (currentHour < 12) {
+    res.locals.greeting = "Good morning. Welcome to the CSE 340 project.";
+  } else if (currentHour < 17) {
+    res.locals.greeting = "Good afternoon. Thanks for visiting.";
+  } else {
+    res.locals.greeting = "Good evening. Glad you stopped by.";
+  }
+
+  next();
+});
+
+app.use((req, res, next) => {
+  const themes = ["blue-theme", "green-theme", "red-theme"];
+  const randomTheme = themes[Math.floor(Math.random() * themes.length)];
+
+  res.locals.bodyClass = randomTheme;
+  next();
+});
+
+app.use((req, res, next) => {
+  res.locals.queryParams = req.query || {};
+  next();
+});
+
 app.use(staticRoutes);
 app.use("/", baseRoutes);
+app.use("/catalog", catalogRoutes);
+app.use("/faculty", facultyRoutes);
+
+app.get("/demo", addDemoHeaders, (req, res) => {
+  res.render("demo", { title: "Middleware Demo Page" });
+});
+
+app.get("/test-error", (req, res, next) => {
+  const err = new Error("This is a test error");
+  err.status = 500;
+  next(err);
+});
 
 const server = http.createServer(app);
 
@@ -67,6 +131,34 @@ if (!isProduction) {
     setTimeout(sendReloadMessage, 100);
   });
 }
+
+app.use((req, res, next) => {
+  const err = new Error("Page Not Found");
+  err.status = 404;
+  next(err);
+});
+
+app.use((err, req, res, next) => {
+  if (res.headersSent || res.finished) {
+    return next(err);
+  }
+
+  const status = err.status || 500;
+  const template = status === 404 ? "404" : "500";
+  const context = {
+    title: status === 404 ? "Page Not Found" : "Server Error",
+    error: NODE_ENV === "production" ? "An error occurred" : err.message,
+    stack: NODE_ENV === "production" ? null : err.stack,
+  };
+
+  try {
+    res.status(status).render(`errors/${template}`, context);
+  } catch (renderErr) {
+    if (!res.headersSent) {
+      res.status(status).send(`<h1>Error ${status}</h1><p>An error occurred.</p>`);
+    }
+  }
+});
 
 server.listen(PORT, host, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

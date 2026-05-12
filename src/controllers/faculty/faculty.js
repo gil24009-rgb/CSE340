@@ -1,21 +1,21 @@
 import {
   getFacultyById,
   getSortedFaculty,
-} from "../models/facultyModel.js";
+} from "../../models/faculty/faculty.js";
 
-export function buildFacultyList(req, res) {
-  const currentSort = ["name", "department", "title"].includes(req.query.sort)
-    ? req.query.sort
-    : "name";
+const validSorts = ["name", "department", "title"];
+
+const facultyListPage = (req, res) => {
+  const currentSort = validSorts.includes(req.query.sort) ? req.query.sort : "name";
 
   res.render("faculty/list", {
     currentSort,
     facultyMembers: getSortedFaculty(currentSort),
     title: "Faculty Directory",
   });
-}
+};
 
-export function buildFacultyDetail(req, res, next) {
+const facultyDetailPage = (req, res, next) => {
   const { facultyId } = req.params;
   const facultyMember = getFacultyById(facultyId);
 
@@ -29,4 +29,6 @@ export function buildFacultyDetail(req, res, next) {
     facultyMember,
     title: facultyMember.name,
   });
-}
+};
+
+export { facultyDetailPage, facultyListPage };

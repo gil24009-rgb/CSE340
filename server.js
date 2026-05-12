@@ -10,7 +10,7 @@ import { WebSocket, WebSocketServer } from "ws";
 import baseRoutes from "./routes/baseRoute.js";
 import catalogRoutes from "./routes/catalogRoute.js";
 import { addDemoHeaders } from "./routes/demoRoute.js";
-import facultyRoutes from "./routes/facultyRoute.js";
+import appRoutes from "./src/routes.js";
 import staticRoutes from "./routes/static.js";
 
 dotenv.config();
@@ -25,7 +25,10 @@ const isProduction = NODE_ENV === "production";
 const host = isProduction ? undefined : "127.0.0.1";
 
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
+app.set("views", [
+  path.join(__dirname, "views"),
+  path.join(__dirname, "src/views"),
+]);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -82,7 +85,7 @@ app.use((req, res, next) => {
 app.use(staticRoutes);
 app.use("/", baseRoutes);
 app.use("/catalog", catalogRoutes);
-app.use("/faculty", facultyRoutes);
+app.use("/", appRoutes);
 
 app.get("/demo", addDemoHeaders, (req, res) => {
   res.render("demo", { title: "Middleware Demo Page" });
@@ -103,7 +106,11 @@ if (!isProduction) {
     path: "/live-reload",
   });
   const reloadWatcher = chokidar.watch(
-    [path.join(__dirname, "views"), path.join(__dirname, "public")],
+    [
+      path.join(__dirname, "views"),
+      path.join(__dirname, "src/views"),
+      path.join(__dirname, "public"),
+    ],
     {
       ignoreInitial: true,
       interval: 250,

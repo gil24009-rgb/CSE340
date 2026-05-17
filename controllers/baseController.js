@@ -12,7 +12,3 @@ export function buildHome(req, res) {
 export function buildAbout(req, res) {
   res.render("about", buildViewModel("About Me"));
 }
-
-export function buildProducts(req, res) {
-  res.render("products", buildViewModel("Our Products"));
-}

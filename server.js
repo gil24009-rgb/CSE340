@@ -59,21 +59,18 @@ app.use((req, res, next) => {
   const currentHour = new Date().getHours();
 
   if (currentHour < 12) {
-    res.locals.greeting = "Good morning. Welcome to the CSE 340 project.";
+    res.locals.greeting = "Morning session";
   } else if (currentHour < 17) {
-    res.locals.greeting = "Good afternoon. Thanks for visiting.";
+    res.locals.greeting = "Afternoon session";
   } else {
-    res.locals.greeting = "Good evening. Glad you stopped by.";
+    res.locals.greeting = "Evening session";
   }
 
   next();
 });
 
 app.use((req, res, next) => {
-  const themes = ["blue-theme", "green-theme", "red-theme"];
-  const randomTheme = themes[Math.floor(Math.random() * themes.length)];
-
-  res.locals.bodyClass = randomTheme;
+  res.locals.bodyClass = "blue-theme";
   next();
 });
 
@@ -88,11 +85,11 @@ app.use("/catalog", catalogRoutes);
 app.use("/", appRoutes);
 
 app.get("/demo", addDemoHeaders, (req, res) => {
-  res.render("demo", { title: "Middleware Demo Page" });
+  res.render("demo", { title: "Request Details" });
 });
 
 app.get("/test-error", (req, res, next) => {
-  const err = new Error("This is a test error");
+  const err = new Error("Intentional error route");
   err.status = 500;
   next(err);
 });

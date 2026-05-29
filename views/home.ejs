@@ -1,14 +1,31 @@
 <%- include("partials/header") %>
 
 <main class="content">
-  <h1><%= title %></h1>
-  <p>
-    This is the home page for my CSE 340 practice project.
-  </p>
-  <p>
-    The site is using EJS templates with shared partials for the header and
-    footer.
-  </p>
+  <section class="hero-panel">
+    <p class="eyebrow">Unit 2</p>
+    <h1><%= title %></h1>
+    <p>
+      A small Express app organized around routes, controllers, models, and EJS views.
+    </p>
+  </section>
+
+  <section class="summary-grid" aria-label="Project areas">
+    <a class="summary-card" href="/catalog">
+      <span>Catalog</span>
+      <strong>Courses and sections</strong>
+      <small>Route parameters and section sorting</small>
+    </a>
+    <a class="summary-card" href="/faculty">
+      <span>Faculty</span>
+      <strong>Directory and profiles</strong>
+      <small>Faculty lookup with query sorting</small>
+    </a>
+    <a class="summary-card" href="/demo">
+      <span>Request</span>
+      <strong>Middleware output</strong>
+      <small>Shared locals and route headers</small>
+    </a>
+  </section>
 </main>
 
 <%- include("partials/footer") %>

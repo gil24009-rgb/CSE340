@@ -2,10 +2,10 @@
 
 <main class="content">
   <h1>Faculty Directory</h1>
-  <p>Browse faculty members by name, department, or title.</p>
+  <p>Faculty profiles can be sorted by name, department, or title.</p>
 
   <div class="sort-options" aria-label="Sort faculty members">
-    <span>Sort by:</span>
+    <span>Sort:</span>
     <a href="/faculty" class="<%= currentSort === 'name' ? 'active' : '' %>">Name</a>
     <a href="/faculty?sort=department" class="<%= currentSort === 'department' ? 'active' : '' %>">Department</a>
     <a href="/faculty?sort=title" class="<%= currentSort === 'title' ? 'active' : '' %>">Title</a>

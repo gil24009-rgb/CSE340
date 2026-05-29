@@ -4,26 +4,26 @@
   <h1><%= title %></h1>
 
   <section class="demo-section">
-    <h2>Global Middleware Results</h2>
-    <p><strong>Greeting:</strong> <%= greeting %></p>
-    <p><strong>Current Year:</strong> <%= currentYear %></p>
-    <p><strong>Theme:</strong> <%= bodyClass %></p>
+    <h2>Shared Values</h2>
+    <p><strong>Session:</strong> <%= greeting %></p>
+    <p><strong>Year:</strong> <%= currentYear %></p>
+    <p><strong>Theme:</strong> muted blue</p>
 
     <% if (Object.keys(queryParams).length > 0) { %>
-      <p><strong>Query Parameters:</strong></p>
+      <p><strong>Query string:</strong></p>
       <ul>
         <% Object.keys(queryParams).forEach((key) => { %>
           <li><strong><%= key %>:</strong> <%= queryParams[key] %></li>
         <% }); %>
       </ul>
     <% } else { %>
-      <p>No query parameters were provided.</p>
+      <p>No query string values were sent.</p>
     <% } %>
   </section>
 
   <section class="demo-section">
-    <h2>Route-Specific Middleware</h2>
-    <p>This page sends custom HTTP headers: <code>X-Demo-Page</code> and <code>X-Middleware-Demo</code>.</p>
+    <h2>Route Headers</h2>
+    <p>Custom headers are added on this route: <code>X-Demo-Page</code> and <code>X-Middleware-Demo</code>.</p>
   </section>
 </main>
 

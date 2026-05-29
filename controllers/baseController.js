@@ -6,9 +6,9 @@ function buildViewModel(title) {
 }
 
 export function buildHome(req, res) {
-  res.render("home", buildViewModel("Welcome Home"));
+  res.render("home", buildViewModel("CSE 340 Workspace"));
 }
 
 export function buildAbout(req, res) {
-  res.render("about", buildViewModel("About Me"));
+  res.render("about", buildViewModel("Project Notes"));
 }

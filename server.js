@@ -74,6 +74,7 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
   res.locals.queryParams = req.query || {};
+  res.locals.currentPath = req.path;
   next();
 });
 

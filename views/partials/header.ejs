@@ -15,11 +15,11 @@
       </a>
       <nav class="site-nav">
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/catalog">Course Catalog</a></li>
-          <li><a href="/faculty">Faculty Directory</a></li>
-          <li><a href="/demo">Page Context</a></li>
+          <li><a href="/" class="<%= currentPath === '/' ? 'active' : '' %>">Home</a></li>
+          <li><a href="/about" class="<%= currentPath.startsWith('/about') ? 'active' : '' %>">About</a></li>
+          <li><a href="/catalog" class="<%= currentPath.startsWith('/catalog') ? 'active' : '' %>">Course Catalog</a></li>
+          <li><a href="/faculty" class="<%= currentPath.startsWith('/faculty') ? 'active' : '' %>">Faculty Directory</a></li>
+          <li><a href="/demo" class="<%= currentPath.startsWith('/demo') ? 'active' : '' %>">Page Context</a></li>
         </ul>
       </nav>
       <p class="site-greeting"><%= greeting %></p>

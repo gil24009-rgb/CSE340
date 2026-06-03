@@ -2,10 +2,8 @@ import http from "node:http";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import chokidar from "chokidar";
 import dotenv from "dotenv";
 import express from "express";
-import { WebSocket, WebSocketServer } from "ws";
 
 import baseRoutes from "./routes/baseRoute.js";
 import catalogRoutes from "./routes/catalogRoute.js";
@@ -97,6 +95,10 @@ app.get("/test-error", (req, res, next) => {
 const server = http.createServer(app);
 
 if (!isProduction) {
+  const [{ default: chokidar }, { WebSocket, WebSocketServer }] = await Promise.all([
+    import("chokidar"),
+    import("ws"),
+  ]);
   const reloadClients = new Set();
   const reloadSocketServer = new WebSocketServer({
     server,

@@ -57,11 +57,11 @@ app.use((req, res, next) => {
   const currentHour = new Date().getHours();
 
   if (currentHour < 12) {
-    res.locals.greeting = "Morning session";
+    res.locals.greeting = "Morning";
   } else if (currentHour < 17) {
-    res.locals.greeting = "Afternoon session";
+    res.locals.greeting = "Afternoon";
   } else {
-    res.locals.greeting = "Evening session";
+    res.locals.greeting = "Evening";
   }
 
   next();
@@ -83,7 +83,7 @@ app.use("/catalog", catalogRoutes);
 app.use("/", appRoutes);
 
 app.get("/demo", addDemoHeaders, (req, res) => {
-  res.render("demo", { title: "Request Details" });
+  res.render("demo", { title: "Page Context" });
 });
 
 app.get("/test-error", (req, res, next) => {

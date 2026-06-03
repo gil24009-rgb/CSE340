@@ -18,7 +18,7 @@
 .faculty-detail,
 .query-debug {
   border: 1px solid var(--line);
-  border-radius: 16px;
+  border-radius: 8px;
   background: var(--surface);
   box-shadow: var(--card-shadow);
 }
@@ -39,8 +39,8 @@
 .course-card:hover,
 .faculty-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(111, 148, 189, 0.5);
-  box-shadow: 0 18px 40px rgba(51, 73, 104, 0.14);
+  border-color: rgba(47, 111, 115, 0.45);
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.1);
 }
 
 .course-card h2,
@@ -64,7 +64,7 @@
 .course-id,
 .course-meta,
 .faculty-title {
-  color: var(--blue-deep);
+  color: var(--accent-deep);
   font-weight: 800;
 }
 
@@ -78,9 +78,10 @@
 }
 
 .course-header {
-  background:
-    linear-gradient(135deg, rgba(230, 238, 247, 0.95), rgba(255, 255, 255, 0.98)),
-    var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--card-shadow);
 }
 
 .sections-header {
@@ -118,7 +119,7 @@
   min-height: 2.2rem;
   align-items: center;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: 6px;
   background: var(--surface);
   padding: 0.32rem 0.78rem;
   color: var(--muted);
@@ -128,8 +129,8 @@
 
 .sort-options a.active,
 .sort-options a:hover {
-  border-color: var(--blue);
-  background: var(--blue);
+  border-color: var(--accent);
+  background: var(--accent);
   color: #ffffff;
 }
 
@@ -170,7 +171,7 @@
 
 .faculty-detail dl div {
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 8px;
   background: var(--surface-soft);
   padding: 0.95rem;
 }
@@ -201,7 +202,7 @@
   width: min(100%, 500px);
   height: auto;
   margin: 1.25rem 0;
-  border-radius: 16px;
+  border-radius: 8px;
 }
 
 @media (max-width: 680px) {

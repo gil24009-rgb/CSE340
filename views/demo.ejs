@@ -4,26 +4,26 @@
   <h1><%= title %></h1>
 
   <section class="demo-section">
-    <h2>Shared Values</h2>
-    <p><strong>Session:</strong> <%= greeting %></p>
+    <h2>Current Page Context</h2>
+    <p><strong>Time of day:</strong> <%= greeting %></p>
     <p><strong>Year:</strong> <%= currentYear %></p>
-    <p><strong>Theme:</strong> muted blue</p>
+    <p><strong>Theme:</strong> course hub</p>
 
     <% if (Object.keys(queryParams).length > 0) { %>
-      <p><strong>Query string:</strong></p>
+      <p><strong>URL values:</strong></p>
       <ul>
         <% Object.keys(queryParams).forEach((key) => { %>
           <li><strong><%= key %>:</strong> <%= queryParams[key] %></li>
         <% }); %>
       </ul>
     <% } else { %>
-      <p>No query string values were sent.</p>
+      <p>No extra URL values are active.</p>
     <% } %>
   </section>
 
   <section class="demo-section">
-    <h2>Route Headers</h2>
-    <p>Custom headers are added on this route: <code>X-Demo-Page</code> and <code>X-Middleware-Demo</code>.</p>
+    <h2>Request Check</h2>
+    <p>This page confirms that the app is reading the current request and showing the matching page data.</p>
   </section>
 </main>
 

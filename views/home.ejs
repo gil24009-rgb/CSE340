@@ -2,27 +2,47 @@
 
 <main class="content">
   <section class="hero-panel">
-    <p class="eyebrow">Course tools</p>
-    <h1><%= title %></h1>
-    <p>
-      Find course sections, review faculty profiles, and check request details from one place.
-    </p>
+    <div class="hero-copy">
+      <p class="eyebrow">Spring 2026</p>
+      <h1><%= title %></h1>
+      <p>
+        A focused workspace for checking course sections, instructor details, and current page context.
+      </p>
+    </div>
+    <aside class="hero-status" aria-label="Course hub summary">
+      <div class="status-card status-card-primary">
+        <span>Live tools</span>
+        <strong>3</strong>
+      </div>
+      <div class="status-card">
+        <span>Courses</span>
+        <strong><%= courseCount %></strong>
+      </div>
+      <div class="status-card">
+        <span>Sections</span>
+        <strong><%= sectionCount %></strong>
+      </div>
+      <div class="status-card">
+        <span>Faculty</span>
+        <strong><%= facultyCount %></strong>
+      </div>
+    </aside>
   </section>
 
   <section class="summary-grid" aria-label="Project areas">
     <a class="summary-card" href="/catalog">
-      <span>Catalog</span>
-      <strong>Course sections</strong>
+      <span>01</span>
+      <strong>Compare sections</strong>
       <small>Compare times, rooms, and instructors.</small>
     </a>
     <a class="summary-card" href="/faculty">
-      <span>Faculty</span>
-      <strong>Directory</strong>
+      <span>02</span>
+      <strong>Find faculty</strong>
       <small>Browse instructors by name, title, or department.</small>
     </a>
     <a class="summary-card" href="/demo">
-      <span>Request</span>
-      <strong>Page context</strong>
+      <span>03</span>
+      <strong>Check context</strong>
       <small>Review the current page values used by the app.</small>
     </a>
   </section>
